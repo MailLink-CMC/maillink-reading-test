@@ -2,8 +2,8 @@ import { useRef, useState, useEffect, useCallback } from "react";
 
 //이렇게 라이브러리를 불러와서 사용하면 됩니다
 import ReactQuill from "react-quill";
-import Portal from "../components/Portal";
-import convertRemToPixels from "../utils/convertRemToPixels";
+import Portal from "./components/Portal";
+import convertRemToPixels from "./utils/convertRemToPixels";
 import "./ReadingEditor.css";
 
 const oneRem = convertRemToPixels(1);
