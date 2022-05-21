@@ -63,6 +63,26 @@ const ReadingEditor = () => {
       };
    }, [removeModal, showModal]);
 
+   useEffect(() => {
+      const onCopy = (e) => {
+         e.preventDefault();
+         window.ReactNativeWebView?.postMessage(JSON.stringify(e));
+         return false;
+      };
+      const onCut = (e) => {
+         e.preventDefault();
+         window.ReactNativeWebView?.postMessage(JSON.stringify(e));
+         return false;
+      };
+      document.addEventListener("copy", onCopy);
+      document.addEventListener("cut", onCut);
+
+      return () => {
+         document.removeEventListener("copy", onCopy);
+         document.removeEventListener("cut", onCut);
+      };
+   }, []);
+
    const onClickInstaShare = (e) => {
       window.ReactNativeWebView?.postMessage(
          JSON.stringify({
